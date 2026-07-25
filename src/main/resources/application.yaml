@@ -9,3 +9,8 @@ spring:
         options:
           model: qwen3.5:4b
 
+logging:
+  level:
+    org-springframework.ai:
+      chat.client: DEBUG
+
