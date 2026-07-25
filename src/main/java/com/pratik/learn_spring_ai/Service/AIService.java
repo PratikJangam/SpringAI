@@ -1,5 +1,6 @@
 package com.pratik.learn_spring_ai.Service;
 
+import com.pratik.learn_spring_ai.dto.Joke;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
@@ -28,8 +29,10 @@ public class AIService {
                         new SimpleLoggerAdvisor()
                 )
                 .call()
-                .chatClientResponse();
+                //.chatClientResponse();
+                .entity(Joke.class);
 
-        return response.chatResponse().getResult().getOutput().getText();
+        //return response.chatResponse().getResult().getOutput().getText();
+        return response.text();
     }
 }
